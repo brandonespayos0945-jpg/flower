@@ -1,27 +1,95 @@
 body {
   margin: 0;
-  background: radial-gradient(circle at center, #020412, #000000);
   overflow: hidden;
+  background: radial-gradient(circle at bottom, #020412, #000);
   height: 100vh;
 }
 
-/* subtle night glow */
-.night {
+/* 🌌 SKY */
+.sky {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(0, 80, 150, 0.2), transparent 70%);
 }
 
-/* flower base */
-.flower {
+.stars {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background-repeat: repeat;
+  animation: moveStars linear infinite;
 }
 
-/* LILY PETALS (long + pointed) */
+.stars--1 {
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation-duration: 60s;
+}
+
+.stars--2 {
+  background-image: radial-gradient(#66ccff 1px, transparent 1px);
+  background-size: 80px 80px;
+  animation-duration: 120s;
+}
+
+.stars--3 {
+  background-image: radial-gradient(#3399ff 1px, transparent 1px);
+  background-size: 120px 120px;
+  animation-duration: 180s;
+}
+
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-500px); }
+}
+
+/* 🌸 GARDEN */
+.garden {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* 🌸 FLOWER */
+.flower {
+  position: relative;
+  transform: scale(0.9);
+}
+
+/* STEM */
+.stem {
+  width: 6px;
+  height: 120px;
+  background: linear-gradient(#003300, #00cc66);
+  margin: auto;
+  box-shadow: 0 0 10px #00ff99;
+}
+
+/* LEAVES */
+.leaf {
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  background: linear-gradient(#00cc66, #006633);
+  border-radius: 50%;
+  box-shadow: 0 0 10px #00ff99;
+}
+
+.leaf--1 {
+  left: -30px;
+  top: 60px;
+  transform: rotate(-30deg);
+}
+
+.leaf--2 {
+  right: -30px;
+  top: 80px;
+  transform: rotate(30deg);
+}
+
+/* PETALS */
 .petal {
   position: absolute;
   width: 40px;
@@ -29,7 +97,6 @@ body {
   background: linear-gradient(to top, #0a1aff, #4da6ff, #b3e0ff);
   border-radius: 50% 50% 20% 20%;
   transform-origin: bottom center;
-  opacity: 0.9;
 
   box-shadow:
     0 0 10px #4da6ff,
@@ -39,7 +106,6 @@ body {
   animation: sway 4s infinite ease-in-out;
 }
 
-/* spread petals like a lily (6 petals) */
 .petal--1 { transform: rotate(0deg) translateY(-60px); }
 .petal--2 { transform: rotate(60deg) translateY(-60px); }
 .petal--3 { transform: rotate(120deg) translateY(-60px); }
@@ -47,7 +113,7 @@ body {
 .petal--5 { transform: rotate(240deg) translateY(-60px); }
 .petal--6 { transform: rotate(300deg) translateY(-60px); }
 
-/* glowing center */
+/* CENTER */
 .center {
   position: absolute;
   width: 25px;
@@ -57,20 +123,46 @@ body {
   top: -10px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2;
-
-  box-shadow:
-    0 0 15px #66b3ff,
-    0 0 30px #1a75ff,
-    0 0 60px #0033cc;
+  box-shadow: 0 0 20px #66b3ff;
 }
 
-/* gentle movement like night breeze */
+/* 💙 PARTICLES */
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #66ccff;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #66ccff;
+  animation: floatUp linear infinite;
+}
+
+/* ❤️ HEARTS */
+.bubble {
+  position: absolute;
+  bottom: -50px;
+  animation: floatUp linear infinite;
+}
+
+.bubble svg {
+  width: 20px;
+  fill: #66ccff;
+}
+
+/* FLOATING */
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+}
+
+/* SWAY */
 @keyframes sway {
-  0%, 100% {
-    transform: scale(1) rotate(var(--r));
-  }
-  50% {
-    transform: scale(1.05) rotate(calc(var(--r) + 2deg));
-  }
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
