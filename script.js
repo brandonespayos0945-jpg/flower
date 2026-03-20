@@ -1,4 +1,15 @@
 onload = () => {
+	  const startScreen = document.getElementById("startScreen");
+  const startBtn = document.getElementById("startBtn");
+
+  startBtn.addEventListener("click", () => {
+    startScreen.classList.add("fade-out");
+
+    // start your animations AFTER click
+    startExperience();
+  });
+
+  function startExperience() {
   document.body.classList.remove("container");
   
     const particleContainer = document.getElementById('particles');
@@ -53,4 +64,4 @@ function resizeCanvas() {
 
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
-};
+}};

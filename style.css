@@ -2053,3 +2053,64 @@ body {
   pointer-events: none;
   z-index: 1; /* below flowers, above stars */
 }
+/* 🎬 START SCREEN */
+#startScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #020412, #000);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* content */
+.start-content {
+  text-align: center;
+  color: #66ccff;
+  font-family: Arial, sans-serif;
+}
+
+.start-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.start-content p {
+  opacity: 0.7;
+  margin-bottom: 20px;
+}
+
+/* button */
+#startBtn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background: #0033cc;
+  color: #b3e0ff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+
+  box-shadow: 0 0 10px #3399ff, 0 0 20px #0033cc;
+  transition: 0.3s;
+}
+
+#startBtn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #66ccff, 0 0 40px #0033cc;
+}
+
+/* fade out animation */
+.fade-out {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
