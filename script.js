@@ -2,12 +2,17 @@ onload = () => {
 	  const startScreen = document.getElementById("startScreen");
   const startBtn = document.getElementById("startBtn");
 
-  startBtn.addEventListener("click", () => {
-    startScreen.classList.add("fade-out");
+const music = document.getElementById("bgMusic");
 
-    // start your animations AFTER click
-    startExperience();
-  });
+startBtn.addEventListener("click", () => {
+  startScreen.classList.add("fade-out");
+
+  // 🎵 play music (allowed because user clicked)
+  music.volume = 0.5; // adjust (0 to 1)
+  music.play();
+
+  startExperience();
+});
 
   function startExperience() {
   document.body.classList.remove("container");
