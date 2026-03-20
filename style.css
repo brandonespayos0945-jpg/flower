@@ -1,168 +1,53 @@
 body {
-  margin: 0;
-  overflow: hidden;
-  background: radial-gradient(circle at bottom, #020412, #000);
-  height: 100vh;
+margin: 0;
+background: black;
+overflow: hidden;
 }
-
-/* 🌌 SKY */
-.sky {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.stars {
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background-repeat: repeat;
-  animation: moveStars linear infinite;
-}
-
-.stars--1 {
-  background-image: radial-gradient(white 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation-duration: 60s;
-}
-
-.stars--2 {
-  background-image: radial-gradient(#66ccff 1px, transparent 1px);
-  background-size: 80px 80px;
-  animation-duration: 120s;
-}
-
-.stars--3 {
-  background-image: radial-gradient(#3399ff 1px, transparent 1px);
-  background-size: 120px 120px;
-  animation-duration: 180s;
-}
-
-@keyframes moveStars {
-  from { transform: translateY(0); }
-  to { transform: translateY(-500px); }
-}
-
-/* 🌸 GARDEN */
-.garden {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-}
-
-/* 🌸 FLOWER */
 .flower {
-  position: relative;
-  transform: scale(0.9);
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+display: flex;
+flex-direction: column;
+align-items: center;
 }
-
-/* STEM */
-.stem {
-  width: 6px;
-  height: 120px;
-  background: linear-gradient(#003300, #00cc66);
-  margin: auto;
-  box-shadow: 0 0 10px #00ff99;
-}
-
-/* LEAVES */
-.leaf {
-  position: absolute;
-  width: 40px;
-  height: 20px;
-  background: linear-gradient(#00cc66, #006633);
-  border-radius: 50%;
-  box-shadow: 0 0 10px #00ff99;
-}
-
-.leaf--1 {
-  left: -30px;
-  top: 60px;
-  transform: rotate(-30deg);
-}
-
-.leaf--2 {
-  right: -30px;
-  top: 80px;
-  transform: rotate(30deg);
-}
-
-/* PETALS */
 .petal {
-  position: absolute;
-  width: 40px;
-  height: 100px;
-  background: linear-gradient(to top, #0a1aff, #4da6ff, #b3e0ff);
-  border-radius: 50% 50% 20% 20%;
-  transform-origin: bottom center;
-
-  box-shadow:
-    0 0 10px #4da6ff,
-    0 0 25px #1a75ff,
-    0 0 50px #0033cc;
-
-  animation: sway 4s infinite ease-in-out;
+width: 60px;
+height: 60px;
+background: #87CEFA; /* Changed pink to Light Sky Blue */
+border-radius: 50%;
+position: absolute;
+opacity: 0.8;
+box-shadow: 0 0 20px #00BFFF, 0 0 40px #0000FF; /* Changed hotpink/deeppink to Glowing Blues */
+animation: glow 2s infinite ease-in-out;
 }
-
-.petal--1 { transform: rotate(0deg) translateY(-60px); }
-.petal--2 { transform: rotate(60deg) translateY(-60px); }
-.petal--3 { transform: rotate(120deg) translateY(-60px); }
-.petal--4 { transform: rotate(180deg) translateY(-60px); }
-.petal--5 { transform: rotate(240deg) translateY(-60px); }
-.petal--6 { transform: rotate(300deg) translateY(-60px); }
-
-/* CENTER */
+.petal:nth-child(1) { transform: rotate(0deg) translateY(-40px); }
+.petal:nth-child(2) { transform: rotate(72deg) translateY(-40px); }
+.petal:nth-child(3) { transform: rotate(144deg) translateY(-40px); }
+.petal:nth-child(4) { transform: rotate(216deg) translateY(-40px); }
+.petal:nth-child(5) { transform: rotate(288deg) translateY(-40px); }
 .center {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  background: radial-gradient(circle, #99ccff, #0066ff);
-  border-radius: 50%;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  box-shadow: 0 0 20px #66b3ff;
+width: 30px;
+height: 30px;
+background: #00008B; /* Changed deeppink to Dark Blue */
+border-radius: 50%;
+box-shadow: 0 0 15px #00BFFF; /* Changed hotpink to Deep Sky Blue */
+z-index: 1;
+}
+@keyframes glow {
+0%, 100% {
+opacity: 0.8;
+transform: scale(1);
+}
+50% {
+opacity: 1;
+transform: scale(1.1);
+}
 }
 
-/* 💙 PARTICLES */
-.particle {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #66ccff;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #66ccff;
-  animation: floatUp linear infinite;
-}
-
-/* ❤️ HEARTS */
-.bubble {
-  position: absolute;
-  bottom: -50px;
-  animation: floatUp linear infinite;
-}
-
-.bubble svg {
-  width: 20px;
-  fill: #66ccff;
-}
-
-/* FLOATING */
-@keyframes floatUp {
-  from {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateY(-100vh);
-    opacity: 0;
-  }
-}
-
-/* SWAY */
-@keyframes sway {
-  0%,100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
+/* --- Added this bottom section to make sure the specific stems, grass, and leaves from your HTML turn blue too --- */
+.flower__line, .flower__line__leaf, .flower__grass, .leaf, .flower__g-long, .flower__g-front__leaf, .flower__g-fr__leaf {
+  background-color: #0055aa; /* Medium blue for stems and leaves */
+  box-shadow: 0 0 10px #0088ff; /* Glowing blue outline */
 }
