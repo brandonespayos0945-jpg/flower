@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  background: radial-gradient(circle at center, #020412, #000000);
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* subtle night glow */
+.night {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 80, 150, 0.2), transparent 70%);
+}
+
+/* flower base */
+.flower {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* LILY PETALS (long + pointed) */
+.petal {
+  position: absolute;
+  width: 40px;
+  height: 100px;
+  background: linear-gradient(to top, #0a1aff, #4da6ff, #b3e0ff);
+  border-radius: 50% 50% 20% 20%;
+  transform-origin: bottom center;
+  opacity: 0.9;
+
+  box-shadow:
+    0 0 10px #4da6ff,
+    0 0 25px #1a75ff,
+    0 0 50px #0033cc;
+
+  animation: sway 4s infinite ease-in-out;
+}
+
+/* spread petals like a lily (6 petals) */
+.petal--1 { transform: rotate(0deg) translateY(-60px); }
+.petal--2 { transform: rotate(60deg) translateY(-60px); }
+.petal--3 { transform: rotate(120deg) translateY(-60px); }
+.petal--4 { transform: rotate(180deg) translateY(-60px); }
+.petal--5 { transform: rotate(240deg) translateY(-60px); }
+.petal--6 { transform: rotate(300deg) translateY(-60px); }
+
+/* glowing center */
+.center {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, #99ccff, #0066ff);
+  border-radius: 50%;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+
+  box-shadow:
+    0 0 15px #66b3ff,
+    0 0 30px #1a75ff,
+    0 0 60px #0033cc;
+}
+
+/* gentle movement like night breeze */
+@keyframes sway {
+  0%, 100% {
+    transform: scale(1) rotate(var(--r));
+  }
+  50% {
+    transform: scale(1.05) rotate(calc(var(--r) + 2deg));
+  }
+}
